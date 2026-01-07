@@ -15,6 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/invoices")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @Tag(name = "Invoices", description = "APIs for managing customer and supplier invoices with automatic GL posting")
 public class InvoiceController {

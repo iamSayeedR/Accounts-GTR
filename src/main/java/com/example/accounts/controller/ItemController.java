@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/items")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @Tag(name = "Items", description = "APIs for managing inventory, service, fixed asset, and manpower items")
 public class ItemController {

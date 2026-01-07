@@ -16,6 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/journal-entries")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @Tag(name = "Journal Entries", description = "APIs for managing journal entries and double-entry accounting")
 public class JournalEntryController {

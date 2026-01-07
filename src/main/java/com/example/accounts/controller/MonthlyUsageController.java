@@ -18,6 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/monthly-usage")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @Tag(name = "Monthly Usage", description = "Track monthly usage for Units of Production depreciation")
 public class MonthlyUsageController {

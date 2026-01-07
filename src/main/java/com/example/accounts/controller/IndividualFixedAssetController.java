@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/api/individual-fixed-assets")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @Tag(name = "Individual Fixed Assets", description = "Manage fixed assets assigned to employees")
 public class IndividualFixedAssetController {

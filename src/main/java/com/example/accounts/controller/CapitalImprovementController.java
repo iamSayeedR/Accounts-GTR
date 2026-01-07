@@ -16,6 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/capital-improvements")
+@CrossOrigin(origins = "http://localhost:3000")
 @RequiredArgsConstructor
 @Tag(name = "Capital Improvements", description = "Manage capital improvements to fixed assets")
 public class CapitalImprovementController {

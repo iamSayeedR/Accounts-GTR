@@ -28,12 +28,25 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    open-in-view: false
   
   # Liquibase Configuration
   liquibase:
     enabled: true
     change-log: classpath:db/changelog/db.changelog-master.json
     drop-first: false
+  
+  # Jackson JSON Configuration for Frontend
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+      indent-output: true
+      fail-on-empty-beans: false
+    deserialization:
+      fail-on-unknown-properties: false
+    default-property-inclusion: non_null
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: UTC
 
 # Logging
 logging:
