@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/companies")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 @RequiredArgsConstructor
 @Tag(name = "Companies", description = "APIs for managing customers and suppliers")
 public class CompanyController {

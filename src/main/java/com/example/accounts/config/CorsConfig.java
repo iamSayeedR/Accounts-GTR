@@ -24,7 +24,7 @@ public class CorsConfig {
 
                 // Allowed origins - Frontend URL
                 config.setAllowedOriginPatterns(Arrays.asList(
-                                "http://localhost:5173" // Vite frontend
+                                "http://localhost:5174" // Vite frontend
                 ));
 
                 // Allowed HTTP methods
@@ -36,15 +36,8 @@ public class CorsConfig {
                                 "DELETE",
                                 "OPTIONS"));
 
-                // Allowed headers
-                config.setAllowedHeaders(Arrays.asList(
-                                "Origin",
-                                "Content-Type",
-                                "Accept",
-                                "Authorization",
-                                "X-Requested-With",
-                                "Access-Control-Request-Method",
-                                "Access-Control-Request-Headers"));
+                // Allow all headers (important for preflight requests)
+                config.addAllowedHeader("*");
 
                 // Exposed headers (headers that frontend can read)
                 config.setExposedHeaders(Arrays.asList(

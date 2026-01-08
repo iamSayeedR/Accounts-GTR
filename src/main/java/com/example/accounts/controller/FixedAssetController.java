@@ -20,7 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/fixed-assets")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 @RequiredArgsConstructor
 @Tag(name = "Fixed Assets", description = "Manage fixed assets and their lifecycle")
 public class FixedAssetController {

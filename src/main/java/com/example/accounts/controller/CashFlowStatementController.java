@@ -20,7 +20,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/cash-flow")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 @RequiredArgsConstructor
 @Tag(name = "Cash Flow Statement", description = "Manage cash flow transactions and generate statements")
 public class CashFlowStatementController {

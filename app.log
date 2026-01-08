@@ -1,0 +1,63 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2026-01-08T19:57:27.533+05:30  INFO 24876 --- [accounts-service] [           main] c.e.a.a.AccountsServiceApplication       : Starting AccountsServiceApplication v0.0.1-SNAPSHOT using Java 21.0.6 with PID 24876 (C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\target\accounts-service-0.0.1-SNAPSHOT.jar started by Sayeed Rizwan in C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service)
+2026-01-08T19:57:27.542+05:30 DEBUG 24876 --- [accounts-service] [           main] c.e.a.a.AccountsServiceApplication       : Running with Spring Boot v3.2.0, Spring v6.1.1
+2026-01-08T19:57:27.544+05:30  INFO 24876 --- [accounts-service] [           main] c.e.a.a.AccountsServiceApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-01-08T19:57:37.734+05:30  INFO 24876 --- [accounts-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-08T19:57:38.986+05:30  INFO 24876 --- [accounts-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 1201 ms. Found 28 JPA repository interfaces.
+2026-01-08T19:57:45.821+05:30  INFO 24876 --- [accounts-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-01-08T19:57:45.916+05:30  INFO 24876 --- [accounts-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-08T19:57:45.920+05:30  INFO 24876 --- [accounts-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2026-01-08T19:57:46.176+05:30  INFO 24876 --- [accounts-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-08T19:57:46.181+05:30  INFO 24876 --- [accounts-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 17964 ms
+2026-01-08T19:57:47.146+05:30  INFO 24876 --- [accounts-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-08T19:57:50.774+05:30  INFO 24876 --- [accounts-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@652e345
+2026-01-08T19:57:50.783+05:30  INFO 24876 --- [accounts-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-08T19:58:10.289+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.changelog                      : Reading from account_db.DATABASECHANGELOG
+Database is up to date, no changesets to execute
+2026-01-08T19:58:12.574+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.changelog                      : Reading from account_db.DATABASECHANGELOG
+2026-01-08T19:58:13.015+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.util                           : UPDATE SUMMARY
+2026-01-08T19:58:13.018+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.util                           : Run:                          0
+2026-01-08T19:58:13.018+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.util                           : Previously run:              42
+2026-01-08T19:58:13.018+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.util                           : Filtered out:                 0
+2026-01-08T19:58:13.019+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.util                           : -------------------------------
+2026-01-08T19:58:13.019+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.util                           : Total change sets:           42
+2026-01-08T19:58:13.021+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.util                           : Update summary generated
+2026-01-08T19:58:13.435+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.lockservice                    : Successfully released change log lock
+2026-01-08T19:58:13.470+05:30  INFO 24876 --- [accounts-service] [           main] liquibase.command                        : Command execution complete
+2026-01-08T19:58:15.093+05:30  INFO 24876 --- [accounts-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-08T19:58:15.734+05:30  INFO 24876 --- [accounts-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.3.1.Final
+2026-01-08T19:58:16.134+05:30  INFO 24876 --- [accounts-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-08T19:58:18.545+05:30  INFO 24876 --- [accounts-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-08T19:58:18.836+05:30  WARN 24876 --- [accounts-service] [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-08T19:58:42.091+05:30  INFO 24876 --- [accounts-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-01-08T19:58:42.468+05:30  INFO 24876 --- [accounts-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-08T19:59:12.406+05:30  INFO 24876 --- [accounts-service] [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-08T19:59:48.381+05:30  WARN 24876 --- [accounts-service] [           main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2026-01-08T19:59:48.408+05:30  INFO 24876 --- [accounts-service] [           main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-01-08T19:59:48.457+05:30  INFO 24876 --- [accounts-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-01-08T19:59:51.197+05:30  INFO 24876 --- [accounts-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-01-08T19:59:51.893+05:30  INFO 24876 --- [accounts-service] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-01-08T19:59:52.333+05:30 ERROR 24876 --- [accounts-service] [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+

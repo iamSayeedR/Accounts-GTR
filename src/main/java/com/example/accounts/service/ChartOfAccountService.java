@@ -190,47 +190,92 @@ public class ChartOfAccountService {
                     .collect(Collectors.toList());
         }
 
-        // Build a map for quick lookup
-        java.util.Map<String, ChartOfAccountTreeNode> nodeMap = new java.util.HashMap<>();
+        // Build maps for lookup
+        // 1. Map by Code (Unique ID) - guarantees we have ALL accounts
+        java.util.Map<String, ChartOfAccountTreeNode> codeMap = new java.util.HashMap<>();
+
+        // 2. Map by Description (for resolving parentGroup) - handles duplicates by
+        // picking the "best" parent
+        java.util.Map<String, ChartOfAccountTreeNode> descriptionMap = new java.util.HashMap<>();
+
         java.util.Map<String, java.util.List<ChartOfAccountTreeNode>> childrenMap = new java.util.HashMap<>();
 
         // First pass: create all nodes
         for (ChartOfAccount account : allAccounts) {
             ChartOfAccountTreeNode node = mapToTreeNode(account);
-            nodeMap.put(account.getDescription(), node);
 
-            // Initialize children list for this node
-            childrenMap.put(account.getDescription(), new java.util.ArrayList<>());
+            // Store unique node by Code
+            codeMap.put(account.getAccountCode(), node);
+
+            // Initialize children list using Code as key (safer than description)
+            childrenMap.put(account.getAccountCode(), new java.util.ArrayList<>());
+
+            // Handle Description Mapping (Resolving Duplicate Descriptions)
+            // If "Profit or Loss" exists twice (8000000 and 8010000), we need the one that
+            // acts as a Parent (8000000)
+            // Heuristic: Prefer nodes whose parent is "Accounts Group" or have a distinct
+            // structure
+            if (!descriptionMap.containsKey(account.getDescription())) {
+                descriptionMap.put(account.getDescription(), node);
+            } else {
+                // Collision! Check if current node is a better "Parent" candidate
+                ChartOfAccountTreeNode existing = descriptionMap.get(account.getDescription());
+
+                // If current node is a Group (parent is Accounts Group), it's likely the
+                // intended parent for others
+                if ("Accounts Group".equals(account.getParentGroup())
+                        && !"Accounts Group".equals(existing.getParentGroup())) {
+                    descriptionMap.put(account.getDescription(), node);
+                }
+                // If existing is already good, keep it.
+                // 8000000 (Group) comes before 8010000 (Child) in SQL usually, but let's be
+                // safe.
+            }
         }
 
         // Second pass: build parent-child relationships
         List<ChartOfAccountTreeNode> rootNodes = new java.util.ArrayList<>();
-        for (ChartOfAccount account : allAccounts) {
-            ChartOfAccountTreeNode node = nodeMap.get(account.getDescription());
 
-            if (account.getParentGroup() != null && !account.getParentGroup().equals("Accounts Group")) {
-                // Find parent node
-                ChartOfAccountTreeNode parent = nodeMap.get(account.getParentGroup());
+        // Iterate over ALL nodes using the Code Map
+        for (ChartOfAccountTreeNode node : codeMap.values()) {
+
+            String parentGroupName = node.getParentGroup();
+
+            if (parentGroupName != null && !parentGroupName.equals("Accounts Group")) {
+                // Find parent node by Description
+                ChartOfAccountTreeNode parent = descriptionMap.get(parentGroupName);
+
                 if (parent != null) {
-                    childrenMap.get(account.getParentGroup()).add(node);
-                    node.setLevel(calculateLevel(account.getAccountCode()));
+                    // Add this node to the parent's children list (using Parent's Code)
+                    childrenMap.get(parent.getAccountCode()).add(node);
+                    node.setLevel(calculateLevel(node.getAccountCode()));
                 } else {
                     // Parent not found, treat as root
                     rootNodes.add(node);
                     node.setLevel(1);
                 }
             } else {
-                // Root level account
+                // Root level account (Parent is "Accounts Group" or null)
                 rootNodes.add(node);
                 node.setLevel(1);
             }
         }
 
-        // Third pass: assign children to nodes and set hasChildren flag
-        for (String key : childrenMap.keySet()) {
-            ChartOfAccountTreeNode node = nodeMap.get(key);
+        // Third pass: assign children to nodes
+        for (String parentCode : childrenMap.keySet()) {
+            ChartOfAccountTreeNode node = codeMap.get(parentCode);
             if (node != null) {
-                List<ChartOfAccountTreeNode> children = childrenMap.get(key);
+                List<ChartOfAccountTreeNode> children = childrenMap.get(parentCode);
+
+                // Sort children by code
+                children.sort((a, b) -> {
+                    if (a.getAccountCode() == null)
+                        return -1;
+                    if (b.getAccountCode() == null)
+                        return 1;
+                    return a.getAccountCode().compareTo(b.getAccountCode());
+                });
+
                 node.setChildren(children);
                 node.setHasChildren(!children.isEmpty());
             }

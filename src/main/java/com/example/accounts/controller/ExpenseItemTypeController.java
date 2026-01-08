@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/expense-item-types")
-@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "http://localhost:5174")
 @RequiredArgsConstructor
 @Tag(name = "Expense Item Types", description = "APIs for managing expense item types")
 public class ExpenseItemTypeController {
