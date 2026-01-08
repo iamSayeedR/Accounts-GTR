@@ -10,7 +10,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.TemporalAdjusters;
 
@@ -25,7 +24,6 @@ public class FixedAssetEntryService {
 
     private final FixedAssetEntryRepository entryRepository;
     private final FixedAssetRepository fixedAssetRepository;
-    private final ChartOfAccountRepository chartOfAccountRepository;
 
     /**
      * Create and post a fixed asset entry (activates the asset)

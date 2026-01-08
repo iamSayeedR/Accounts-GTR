@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/chart-of-accounts")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequiredArgsConstructor
 @Tag(name = "Chart of Accounts", description = "APIs for managing General Ledger Chart of Accounts")
 public class ChartOfAccountController {

@@ -1,6 +1,5 @@
 package com.example.accounts.dto;
 
-import com.example.accounts.entity.enums.AssetStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

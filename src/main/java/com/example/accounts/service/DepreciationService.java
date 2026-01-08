@@ -2,7 +2,6 @@ package com.example.accounts.service;
 
 import com.example.accounts.entity.*;
 import com.example.accounts.entity.enums.AssetStatus;
-import com.example.accounts.entity.enums.DepreciationMethod;
 import com.example.accounts.exception.BusinessException;
 import com.example.accounts.exception.ResourceNotFoundException;
 import com.example.accounts.repository.*;
@@ -31,7 +30,6 @@ public class DepreciationService {
     private final FixedAssetRepository fixedAssetRepository;
     private final FixedAssetDepreciationRepository depreciationRepository;
     private final FixedAssetMonthlyUsageRepository monthlyUsageRepository;
-    private final JournalEntryService journalEntryService;
 
     /**
      * Calculate and create depreciation for a specific asset and period
@@ -210,8 +208,6 @@ public class DepreciationService {
         if (depreciation.getIsPosted()) {
             throw new BusinessException("Depreciation " + depreciationId + " is already posted");
         }
-
-        FixedAsset asset = depreciation.getFixedAsset();
 
         // Create journal entry
         // Dr. Depreciation Expense

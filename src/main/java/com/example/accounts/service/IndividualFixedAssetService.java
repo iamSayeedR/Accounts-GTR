@@ -4,7 +4,6 @@ import com.example.accounts.entity.FixedAsset;
 import com.example.accounts.entity.IndividualFixedAsset;
 import com.example.accounts.exception.BusinessException;
 import com.example.accounts.exception.ResourceNotFoundException;
-import com.example.accounts.repository.FixedAssetRepository;
 import com.example.accounts.repository.IndividualFixedAssetRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +25,6 @@ import java.util.Optional;
 public class IndividualFixedAssetService {
 
     private final IndividualFixedAssetRepository assignmentRepository;
-    private final FixedAssetRepository fixedAssetRepository;
 
     /**
      * Transfer asset to employee

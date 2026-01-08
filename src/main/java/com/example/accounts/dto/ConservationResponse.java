@@ -38,7 +38,6 @@ public class ConservationResponse {
     private BigDecimal salvageValueAtConservation;
     private BigDecimal accumulatedDepreciationAtConservation;
     private BigDecimal netBookValueAtConservation;
-    private BigDecimal depreciableCostAtConservation;
     private Integer usefulLifeMonthsAtConservation;
     private String depreciationMethodAtConservation;
 

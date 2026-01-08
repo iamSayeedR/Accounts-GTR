@@ -8,7 +8,6 @@ import com.example.accounts.entity.Item;
 import com.example.accounts.entity.ItemGLAccount;
 import com.example.accounts.entity.enums.ItemType;
 import com.example.accounts.exception.DuplicateResourceException;
-import com.example.accounts.exception.ResourceNotFoundException;
 import com.example.accounts.repository.ChartOfAccountRepository;
 import com.example.accounts.repository.ItemRepository;
 import org.junit.jupiter.api.BeforeEach;

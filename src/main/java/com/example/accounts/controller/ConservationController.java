@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/api/conservations")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequiredArgsConstructor
 @Tag(name = "Fixed Asset Conservations", description = "Manage asset conservations (pause/resume depreciation)")
 public class ConservationController {

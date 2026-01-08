@@ -7,7 +7,6 @@ import com.example.accounts.entity.*;
 import com.example.accounts.entity.enums.*;
 import com.example.accounts.exception.DuplicateResourceException;
 import com.example.accounts.exception.InvalidTransactionException;
-import com.example.accounts.exception.ResourceNotFoundException;
 import com.example.accounts.repository.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

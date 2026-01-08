@@ -16,7 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/fixed-asset-entries")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequiredArgsConstructor
 @Tag(name = "Fixed Asset Entries", description = "Activate fixed assets and set depreciation parameters")
 public class FixedAssetEntryController {

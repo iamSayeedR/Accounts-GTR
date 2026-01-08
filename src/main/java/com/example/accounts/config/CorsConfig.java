@@ -7,7 +7,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * CORS Configuration for Frontend Integration
@@ -25,7 +24,7 @@ public class CorsConfig {
 
                 // Allowed origins - Frontend URL
                 config.setAllowedOriginPatterns(Arrays.asList(
-                                "http://localhost:3000" // React/Vite frontend
+                                "http://localhost:5173" // Vite frontend
                 ));
 
                 // Allowed HTTP methods

@@ -16,7 +16,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/api/fixed-assets/reports")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:5173")
 @RequiredArgsConstructor
 @Tag(name = "Fixed Assets Reports", description = "Reports, dashboards, and analytics for fixed assets")
 public class FixedAssetReportController {

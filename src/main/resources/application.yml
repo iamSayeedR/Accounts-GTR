@@ -40,7 +40,7 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: false
-      indent-output: true
+      indent-output: false  # Disabled to prevent chunked encoding issues
       fail-on-empty-beans: false
     deserialization:
       fail-on-unknown-properties: false

@@ -28,7 +28,6 @@ public class InvoiceService {
     private final CompanyRepository companyRepository;
     private final ItemRepository itemRepository;
     private final JournalEntryRepository journalEntryRepository;
-    private final ChartOfAccountRepository chartOfAccountRepository;
 
     public InvoiceResponse createInvoice(InvoiceRequest request) {
         if (invoiceRepository.existsByInvoiceNumber(request.getInvoiceNumber())) {
