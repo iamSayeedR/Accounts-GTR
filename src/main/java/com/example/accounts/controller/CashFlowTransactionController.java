@@ -52,4 +52,16 @@ public class CashFlowTransactionController {
         service.postTransaction(id);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CashFlowTransactionResponse> update(@PathVariable Long id,
+            @RequestBody CashFlowTransactionRequest request) {
+        return ResponseEntity.ok(service.updateTransaction(id, request));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.deleteTransaction(id);
+        return ResponseEntity.noContent().build();
+    }
 }

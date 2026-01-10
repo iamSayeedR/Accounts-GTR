@@ -66,6 +66,48 @@ public class JournalEntryService {
         return mapToResponse(saved);
     }
 
+    public JournalEntryResponse updateJournalEntry(Long id, JournalEntryRequest request) {
+        JournalEntry journalEntry = journalEntryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Journal entry not found with id: " + id));
+
+        if (journalEntry.getStatus() != JournalEntryStatus.DRAFT) {
+            throw new InvalidTransactionException("Only draft journal entries can be updated");
+        }
+
+        journalEntry.setEntryDate(request.getEntryDate());
+        journalEntry.setDocumentType(request.getDocumentType());
+        journalEntry.setDescription(request.getDescription());
+        journalEntry.setReferenceNumber(request.getReferenceNumber());
+
+        if (request.getCompanyId() != null) {
+            Company company = companyRepository.findById(request.getCompanyId())
+                    .orElseThrow(() -> new ResourceNotFoundException(
+                            "Company not found with id: " + request.getCompanyId()));
+            journalEntry.setCompany(company);
+        } else {
+            journalEntry.setCompany(null);
+        }
+
+        // Update lines
+        journalEntry.getLines().clear();
+        for (JournalEntryLineRequest lineReq : request.getLines()) {
+            JournalEntryLine line = createJournalEntryLine(lineReq);
+            journalEntry.addLine(line);
+        }
+
+        // Calculate totals
+        journalEntry.calculateTotals();
+
+        // Validate balance
+        if (!journalEntry.isBalanced()) {
+            throw new InvalidTransactionException("Journal entry is not balanced. Debit: " +
+                    journalEntry.getTotalDebit() + ", Credit: " + journalEntry.getTotalCredit());
+        }
+
+        JournalEntry saved = journalEntryRepository.save(journalEntry);
+        return mapToResponse(saved);
+    }
+
     public JournalEntryResponse getJournalEntryById(Long id) {
         JournalEntry journalEntry = journalEntryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Journal entry not found with id: " + id));

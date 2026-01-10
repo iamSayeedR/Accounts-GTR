@@ -58,4 +58,20 @@ public class InvoiceController {
         InvoiceResponse response = invoiceService.postInvoice(id, postedBy);
         return ResponseEntity.ok(response);
     }
+
+    @PutMapping("/{id}")
+    @Operation(summary = "Update invoice")
+    public ResponseEntity<InvoiceResponse> updateInvoice(
+            @PathVariable Long id,
+            @Valid @RequestBody InvoiceRequest request) {
+        InvoiceResponse response = invoiceService.updateInvoice(id, request);
+        return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "Delete invoice")
+    public ResponseEntity<Void> deleteInvoice(@PathVariable Long id) {
+        invoiceService.deleteInvoice(id);
+        return ResponseEntity.noContent().build();
+    }
 }

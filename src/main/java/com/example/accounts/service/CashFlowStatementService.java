@@ -1,4 +1,5 @@
 package com.example.accounts.service;
+
 import com.example.accounts.dto.*;
 import com.example.accounts.entity.CashFlowItem;
 import com.example.accounts.entity.CashFlowTransaction;
@@ -75,6 +76,47 @@ public class CashFlowStatementService {
         transactionRepository.save(transaction);
 
         log.info("Posted cash flow transaction: {}", transactionId);
+    }
+
+    public CashFlowTransactionResponse updateTransaction(Long id, CashFlowTransactionRequest request) {
+        CashFlowTransaction transaction = transactionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Cash flow transaction not found with id: " + id));
+
+        if (Boolean.TRUE.equals(transaction.getIsPosted())) {
+            throw new com.example.accounts.exception.InvalidTransactionException("Cannot update posted transaction");
+        }
+
+        CashFlowItem item = cashFlowItemRepository.findById(request.getCashFlowItemId())
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Cash flow item not found with id: " + request.getCashFlowItemId()));
+
+        transaction.setTransactionNumber(request.getTransactionNumber());
+        transaction.setTransactionDate(request.getTransactionDate());
+        transaction.setCashFlowItem(item);
+        transaction.setFlowType(request.getFlowType());
+        transaction.setCategory(request.getCategory());
+        transaction.setAmount(request.getAmount());
+        transaction.setDescription(request.getDescription());
+        transaction.setEntity(request.getEntity());
+        transaction.setCurrency(request.getCurrency());
+        transaction.setReferenceNumber(request.getReferenceNumber());
+        transaction.setNotes(request.getNotes());
+
+        CashFlowTransaction saved = transactionRepository.save(transaction);
+        return toResponse(saved);
+    }
+
+    public void deleteTransaction(Long id) {
+        CashFlowTransaction transaction = transactionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Cash flow transaction not found with id: " + id));
+
+        if (Boolean.TRUE.equals(transaction.getIsPosted())) {
+            throw new com.example.accounts.exception.InvalidTransactionException("Cannot delete posted transaction");
+        }
+
+        transactionRepository.deleteById(id);
     }
 
     /**

@@ -30,6 +30,15 @@ public class JournalEntryController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+    @PutMapping("/{id}")
+    @Operation(summary = "Update journal entry (only drafts)")
+    public ResponseEntity<JournalEntryResponse> updateJournalEntry(
+            @PathVariable Long id,
+            @Valid @RequestBody JournalEntryRequest request) {
+        JournalEntryResponse response = journalEntryService.updateJournalEntry(id, request);
+        return ResponseEntity.ok(response);
+    }
+
     @GetMapping("/{id}")
     @Operation(summary = "Get journal entry by ID")
     public ResponseEntity<JournalEntryResponse> getJournalEntryById(@PathVariable Long id) {

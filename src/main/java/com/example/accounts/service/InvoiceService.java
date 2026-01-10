@@ -105,6 +105,54 @@ public class InvoiceService {
         return mapToResponse(saved);
     }
 
+    public InvoiceResponse updateInvoice(Long id, InvoiceRequest request) {
+        Invoice invoice = invoiceRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Invoice not found with id: " + id));
+
+        if (invoice.getIsPosted()) {
+            throw new InvalidTransactionException("Cannot update posted invoice");
+        }
+
+        Company company = companyRepository.findById(request.getCompanyId())
+                .orElseThrow(
+                        () -> new ResourceNotFoundException("Company not found with id: " + request.getCompanyId()));
+
+        invoice.setInvoiceNumber(request.getInvoiceNumber());
+        invoice.setInvoiceDate(request.getInvoiceDate());
+        invoice.setDueDate(request.getDueDate());
+        invoice.setDocumentType(request.getDocumentType());
+        invoice.setCompany(company);
+        invoice.setContract(request.getContract());
+        invoice.setEntity(request.getEntity());
+        invoice.setWarehouse(request.getWarehouse());
+        invoice.setBasis(request.getBasis());
+        invoice.setNotes(request.getNotes());
+
+        // Update lines - simple strategy: clear and recreate
+        invoice.getLines().clear();
+        for (InvoiceLineRequest lineReq : request.getLines()) {
+            InvoiceLine line = createInvoiceLine(lineReq);
+            invoice.addLine(line);
+        }
+
+        // Calculate totals
+        invoice.calculateTotals();
+
+        Invoice saved = invoiceRepository.save(invoice);
+        return mapToResponse(saved);
+    }
+
+    public void deleteInvoice(Long id) {
+        Invoice invoice = invoiceRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Invoice not found with id: " + id));
+
+        if (invoice.getIsPosted()) {
+            throw new InvalidTransactionException("Cannot delete posted invoice");
+        }
+
+        invoiceRepository.deleteById(id);
+    }
+
     private JournalEntry createJournalEntryForInvoice(Invoice invoice, String postedBy) {
         JournalEntry je = JournalEntry.builder()
                 .entryNumber("JE-INV-" + invoice.getInvoiceNumber())
