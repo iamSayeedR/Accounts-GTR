@@ -1,0 +1,52 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.example.accounts:accounts-service >----------------
+[INFO] Building accounts-service 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:3.2.0:run (default-cli) > test-compile @ accounts-service >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ accounts-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 28 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ accounts-service ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 211 source files with javac [debug release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[29,52] cannot find symbol
+  symbol:   method getItemId()
+  location: variable request of type com.example.accounts.dto.ItemGLAccountRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[30,102] cannot find symbol
+  symbol:   method getItemId()
+  location: variable request of type com.example.accounts.dto.ItemGLAccountRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[103,17] cannot find symbol
+  symbol:   method itemGLAccountId(java.lang.Long)
+  location: class com.example.accounts.dto.ItemGLAccountResponse.ItemGLAccountResponseBuilder
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:25 min
+[INFO] Finished at: 2026-01-10T11:06:06+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project accounts-service: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[29,52] cannot find symbol
+[ERROR]   symbol:   method getItemId()
+[ERROR]   location: variable request of type com.example.accounts.dto.ItemGLAccountRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[30,102] cannot find symbol
+[ERROR]   symbol:   method getItemId()
+[ERROR]   location: variable request of type com.example.accounts.dto.ItemGLAccountRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[103,17] cannot find symbol
+[ERROR]   symbol:   method itemGLAccountId(java.lang.Long)
+[ERROR]   location: class com.example.accounts.dto.ItemGLAccountResponse.ItemGLAccountResponseBuilder
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

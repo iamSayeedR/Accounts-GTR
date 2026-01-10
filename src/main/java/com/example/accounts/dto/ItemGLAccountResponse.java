@@ -10,6 +10,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemGLAccountResponse {
+    private Long itemGLAccountId;
+    private Long itemId;
+    private String itemCode;
+    private String itemDescription;
+
     private Long glAccountId;
     private String glAccountCode;
     private String glAccountDescription;

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ItemGLAccountRequest {
+    private Long itemId;
     private Long glAccountId;
     private Long goodsOnConsignmentAccountId;
     private Long salesRevenueAccountId;

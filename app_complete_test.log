@@ -1,0 +1,644 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.example.accounts:accounts-service >----------------
+[INFO] Building accounts-service 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:3.2.0:run (default-cli) > test-compile @ accounts-service >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ accounts-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 28 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ accounts-service ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 131 source files with javac [debug release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[3,32] cannot access com.example.accounts.dto.ExpenseItemTypeRequest
+  bad source file: C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\src\main\java\com\example\accounts\dto\ExpenseItemTypeRequest.java
+    file does not contain class com.example.accounts.dto.ExpenseItemTypeRequest
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[4,32] cannot access com.example.accounts.dto.ExpenseItemTypeResponse
+  bad source file: C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\src\main\java\com\example\accounts\dto\ExpenseItemTypeResponse.java
+    file does not contain class com.example.accounts.dto.ExpenseItemTypeResponse
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[10,39] cannot access com.example.accounts.repository.ItemGLAccountRepository
+  bad source file: C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\src\main\java\com\example\accounts\repository\ItemGLAccountRepository.java
+    file does not contain class com.example.accounts.repository.ItemGLAccountRepository
+    Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[22,58] cannot find symbol
+  symbol:   class ExpenseItemTypeRequest
+  location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[22,12] cannot find symbol
+  symbol:   class ExpenseItemTypeResponse
+  location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[34,12] cannot find symbol
+  symbol:   class ExpenseItemTypeResponse
+  location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[41,17] cannot find symbol
+  symbol:   class ExpenseItemTypeResponse
+  location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[47,67] cannot find symbol
+  symbol:   class ExpenseItemTypeRequest
+  location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[47,12] cannot find symbol
+  symbol:   class ExpenseItemTypeResponse
+  location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[65,13] cannot find symbol
+  symbol:   class ExpenseItemTypeResponse
+  location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[24,19] cannot find symbol
+  symbol:   class ItemGLAccountRepository
+  location: class com.example.accounts.service.ItemGLAccountService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[30,63] cannot find symbol
+  symbol:   method getEntryNumber()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[31,99] cannot find symbol
+  symbol:   method getEntryNumber()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[34,49] cannot find symbol
+  symbol:   method builder()
+  location: class com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[35,37] cannot find symbol
+  symbol:   method getEntryNumber()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[36,35] cannot find symbol
+  symbol:   method getEntryDate()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[37,38] cannot find symbol
+  symbol:   method getDocumentType()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[38,37] cannot find symbol
+  symbol:   method getDescription()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[39,41] cannot find symbol
+  symbol:   method getReferenceNumber()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[43,20] cannot find symbol
+  symbol:   method getCompanyId()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[44,65] cannot find symbol
+  symbol:   method getCompanyId()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[46,68] cannot find symbol
+  symbol:   method getCompanyId()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[47,25] cannot find symbol
+  symbol:   method setCompany(com.example.accounts.entity.Company)
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[51,55] cannot find symbol
+  symbol:   method getLines()
+  location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[62,33] cannot find symbol
+  symbol:   method getTotalDebit()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[62,79] cannot find symbol
+  symbol:   method getTotalCredit()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[91,25] cannot find symbol
+  symbol:   method getStatus()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[99,21] cannot find symbol
+  symbol:   method setStatus(com.example.accounts.entity.enums.JournalEntryStatus)
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[100,21] cannot find symbol
+  symbol:   method setPostedDate(java.time.LocalDateTime)
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[101,21] cannot find symbol
+  symbol:   method setPostedBy(java.lang.String)
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[111,25] cannot find symbol
+  symbol:   method getStatus()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[115,21] cannot find symbol
+  symbol:   method setStatus(com.example.accounts.entity.enums.JournalEntryStatus)
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[125,25] cannot find symbol
+  symbol:   method getStatus()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[133,75] cannot find symbol
+  symbol:   method getAccountId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[135,100] cannot find symbol
+  symbol:   method getAccountId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[137,49] cannot find symbol
+  symbol:   method builder()
+  location: class com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[138,36] cannot find symbol
+  symbol:   method getLineNumber()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[140,37] cannot find symbol
+  symbol:   method getDebitAmount()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[140,72] cannot find symbol
+  symbol:   method getDebitAmount()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[141,38] cannot find symbol
+  symbol:   method getCreditAmount()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[141,74] cannot find symbol
+  symbol:   method getCreditAmount()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[142,37] cannot find symbol
+  symbol:   method getDescription()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[143,35] cannot find symbol
+  symbol:   method getWarehouse()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[144,34] cannot find symbol
+  symbol:   method getContract()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[145,34] cannot find symbol
+  symbol:   method getQuantity()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[148,20] cannot find symbol
+  symbol:   method getItemId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[149,56] cannot find symbol
+  symbol:   method getItemId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[150,106] cannot find symbol
+  symbol:   method getItemId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[151,17] cannot find symbol
+  symbol:   method setItem(com.example.accounts.entity.Item)
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[154,20] cannot find symbol
+  symbol:   method getCompanyId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[155,65] cannot find symbol
+  symbol:   method getCompanyId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[157,68] cannot find symbol
+  symbol:   method getCompanyId()
+  location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[158,17] cannot find symbol
+  symbol:   method setCompany(com.example.accounts.entity.Company)
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[165,68] cannot find symbol
+  symbol:   method getLines()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[169,36] cannot find symbol
+  symbol:   method builder()
+  location: class com.example.accounts.dto.JournalEntryResponse
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[170,45] cannot find symbol
+  symbol:   method getJournalEntryId()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[171,42] cannot find symbol
+  symbol:   method getEntryNumber()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[172,40] cannot find symbol
+  symbol:   method getEntryDate()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[173,43] cannot find symbol
+  symbol:   method getDocumentType()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[174,42] cannot find symbol
+  symbol:   method getDescription()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[175,40] cannot find symbol
+  symbol:   method getCompany()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[175,76] cannot find symbol
+  symbol:   method getCompany()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[176,42] cannot find symbol
+  symbol:   method getCompany()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[176,78] cannot find symbol
+  symbol:   method getCompany()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[177,42] cannot find symbol
+  symbol:   method getCompany()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[177,78] cannot find symbol
+  symbol:   method getCompany()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[178,46] cannot find symbol
+  symbol:   method getReferenceNumber()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[179,41] cannot find symbol
+  symbol:   method getTotalDebit()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[180,42] cannot find symbol
+  symbol:   method getTotalCredit()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[181,37] cannot find symbol
+  symbol:   method getStatus()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[182,41] cannot find symbol
+  symbol:   method getPostedDate()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[183,39] cannot find symbol
+  symbol:   method getPostedBy()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[185,40] cannot find symbol
+  symbol:   method getCreatedAt()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[186,40] cannot find symbol
+  symbol:   method getUpdatedAt()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[187,40] cannot find symbol
+  symbol:   method getCreatedBy()
+  location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[192,40] cannot find symbol
+  symbol:   method builder()
+  location: class com.example.accounts.dto.JournalEntryLineResponse
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[193,29] cannot find symbol
+  symbol:   method getLineId()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[194,33] cannot find symbol
+  symbol:   method getLineNumber()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[195,32] cannot find symbol
+  symbol:   method getAccount()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[196,34] cannot find symbol
+  symbol:   method getAccount()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[197,41] cannot find symbol
+  symbol:   method getAccount()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[198,34] cannot find symbol
+  symbol:   method getDebitAmount()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[199,35] cannot find symbol
+  symbol:   method getCreditAmount()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[200,34] cannot find symbol
+  symbol:   method getDescription()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[201,29] cannot find symbol
+  symbol:   method getItem()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[201,54] cannot find symbol
+  symbol:   method getItem()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[202,31] cannot find symbol
+  symbol:   method getItem()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[202,56] cannot find symbol
+  symbol:   method getItem()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[203,32] cannot find symbol
+  symbol:   method getCompany()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[203,60] cannot find symbol
+  symbol:   method getCompany()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[204,34] cannot find symbol
+  symbol:   method getCompany()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[204,62] cannot find symbol
+  symbol:   method getCompany()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[205,32] cannot find symbol
+  symbol:   method getWarehouse()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[206,31] cannot find symbol
+  symbol:   method getContract()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[207,31] cannot find symbol
+  symbol:   method getQuantity()
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[89,13] cannot find symbol
+  symbol:   method setJournalEntry(com.example.accounts.entity.JournalEntry)
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[94,13] cannot find symbol
+  symbol:   method setJournalEntry(<nulltype>)
+  location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[99,22] invalid method reference
+  cannot find symbol
+    symbol:   method getDebitAmount()
+    location: class com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[103,22] invalid method reference
+  cannot find symbol
+    symbol:   method getCreditAmount()
+    location: class com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/ChartOfAccount.java:[79,18] cannot find symbol
+  symbol:   method setChartOfAccount(com.example.accounts.entity.ChartOfAccount)
+  location: variable dimension of type com.example.accounts.entity.AccountDimension
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.742 s
+[INFO] Finished at: 2026-01-10T10:57:10+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project accounts-service: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[3,32] cannot access com.example.accounts.dto.ExpenseItemTypeRequest
+[ERROR]   bad source file: C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\src\main\java\com\example\accounts\dto\ExpenseItemTypeRequest.java
+[ERROR]     file does not contain class com.example.accounts.dto.ExpenseItemTypeRequest
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[4,32] cannot access com.example.accounts.dto.ExpenseItemTypeResponse
+[ERROR]   bad source file: C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\src\main\java\com\example\accounts\dto\ExpenseItemTypeResponse.java
+[ERROR]     file does not contain class com.example.accounts.dto.ExpenseItemTypeResponse
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[10,39] cannot access com.example.accounts.repository.ItemGLAccountRepository
+[ERROR]   bad source file: C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\src\main\java\com\example\accounts\repository\ItemGLAccountRepository.java
+[ERROR]     file does not contain class com.example.accounts.repository.ItemGLAccountRepository
+[ERROR]     Please remove or make sure it appears in the correct subdirectory of the sourcepath.
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[22,58] cannot find symbol
+[ERROR]   symbol:   class ExpenseItemTypeRequest
+[ERROR]   location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[22,12] cannot find symbol
+[ERROR]   symbol:   class ExpenseItemTypeResponse
+[ERROR]   location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[34,12] cannot find symbol
+[ERROR]   symbol:   class ExpenseItemTypeResponse
+[ERROR]   location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[41,17] cannot find symbol
+[ERROR]   symbol:   class ExpenseItemTypeResponse
+[ERROR]   location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[47,67] cannot find symbol
+[ERROR]   symbol:   class ExpenseItemTypeRequest
+[ERROR]   location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[47,12] cannot find symbol
+[ERROR]   symbol:   class ExpenseItemTypeResponse
+[ERROR]   location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ExpenseItemTypeService.java:[65,13] cannot find symbol
+[ERROR]   symbol:   class ExpenseItemTypeResponse
+[ERROR]   location: class com.example.accounts.service.ExpenseItemTypeService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[24,19] cannot find symbol
+[ERROR]   symbol:   class ItemGLAccountRepository
+[ERROR]   location: class com.example.accounts.service.ItemGLAccountService
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[30,63] cannot find symbol
+[ERROR]   symbol:   method getEntryNumber()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[31,99] cannot find symbol
+[ERROR]   symbol:   method getEntryNumber()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[34,49] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[35,37] cannot find symbol
+[ERROR]   symbol:   method getEntryNumber()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[36,35] cannot find symbol
+[ERROR]   symbol:   method getEntryDate()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[37,38] cannot find symbol
+[ERROR]   symbol:   method getDocumentType()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[38,37] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[39,41] cannot find symbol
+[ERROR]   symbol:   method getReferenceNumber()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[43,20] cannot find symbol
+[ERROR]   symbol:   method getCompanyId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[44,65] cannot find symbol
+[ERROR]   symbol:   method getCompanyId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[46,68] cannot find symbol
+[ERROR]   symbol:   method getCompanyId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[47,25] cannot find symbol
+[ERROR]   symbol:   method setCompany(com.example.accounts.entity.Company)
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[51,55] cannot find symbol
+[ERROR]   symbol:   method getLines()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[62,33] cannot find symbol
+[ERROR]   symbol:   method getTotalDebit()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[62,79] cannot find symbol
+[ERROR]   symbol:   method getTotalCredit()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[91,25] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[99,21] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.example.accounts.entity.enums.JournalEntryStatus)
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[100,21] cannot find symbol
+[ERROR]   symbol:   method setPostedDate(java.time.LocalDateTime)
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[101,21] cannot find symbol
+[ERROR]   symbol:   method setPostedBy(java.lang.String)
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[111,25] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[115,21] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.example.accounts.entity.enums.JournalEntryStatus)
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[125,25] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[133,75] cannot find symbol
+[ERROR]   symbol:   method getAccountId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[135,100] cannot find symbol
+[ERROR]   symbol:   method getAccountId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[137,49] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[138,36] cannot find symbol
+[ERROR]   symbol:   method getLineNumber()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[140,37] cannot find symbol
+[ERROR]   symbol:   method getDebitAmount()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[140,72] cannot find symbol
+[ERROR]   symbol:   method getDebitAmount()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[141,38] cannot find symbol
+[ERROR]   symbol:   method getCreditAmount()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[141,74] cannot find symbol
+[ERROR]   symbol:   method getCreditAmount()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[142,37] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[143,35] cannot find symbol
+[ERROR]   symbol:   method getWarehouse()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[144,34] cannot find symbol
+[ERROR]   symbol:   method getContract()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[145,34] cannot find symbol
+[ERROR]   symbol:   method getQuantity()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[148,20] cannot find symbol
+[ERROR]   symbol:   method getItemId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[149,56] cannot find symbol
+[ERROR]   symbol:   method getItemId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[150,106] cannot find symbol
+[ERROR]   symbol:   method getItemId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[151,17] cannot find symbol
+[ERROR]   symbol:   method setItem(com.example.accounts.entity.Item)
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[154,20] cannot find symbol
+[ERROR]   symbol:   method getCompanyId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[155,65] cannot find symbol
+[ERROR]   symbol:   method getCompanyId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[157,68] cannot find symbol
+[ERROR]   symbol:   method getCompanyId()
+[ERROR]   location: variable request of type com.example.accounts.dto.JournalEntryLineRequest
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[158,17] cannot find symbol
+[ERROR]   symbol:   method setCompany(com.example.accounts.entity.Company)
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[165,68] cannot find symbol
+[ERROR]   symbol:   method getLines()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[169,36] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.example.accounts.dto.JournalEntryResponse
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[170,45] cannot find symbol
+[ERROR]   symbol:   method getJournalEntryId()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[171,42] cannot find symbol
+[ERROR]   symbol:   method getEntryNumber()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[172,40] cannot find symbol
+[ERROR]   symbol:   method getEntryDate()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[173,43] cannot find symbol
+[ERROR]   symbol:   method getDocumentType()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[174,42] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[175,40] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[175,76] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[176,42] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[176,78] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[177,42] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[177,78] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[178,46] cannot find symbol
+[ERROR]   symbol:   method getReferenceNumber()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[179,41] cannot find symbol
+[ERROR]   symbol:   method getTotalDebit()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[180,42] cannot find symbol
+[ERROR]   symbol:   method getTotalCredit()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[181,37] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[182,41] cannot find symbol
+[ERROR]   symbol:   method getPostedDate()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[183,39] cannot find symbol
+[ERROR]   symbol:   method getPostedBy()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[185,40] cannot find symbol
+[ERROR]   symbol:   method getCreatedAt()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[186,40] cannot find symbol
+[ERROR]   symbol:   method getUpdatedAt()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[187,40] cannot find symbol
+[ERROR]   symbol:   method getCreatedBy()
+[ERROR]   location: variable journalEntry of type com.example.accounts.entity.JournalEntry
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[192,40] cannot find symbol
+[ERROR]   symbol:   method builder()
+[ERROR]   location: class com.example.accounts.dto.JournalEntryLineResponse
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[193,29] cannot find symbol
+[ERROR]   symbol:   method getLineId()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[194,33] cannot find symbol
+[ERROR]   symbol:   method getLineNumber()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[195,32] cannot find symbol
+[ERROR]   symbol:   method getAccount()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[196,34] cannot find symbol
+[ERROR]   symbol:   method getAccount()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[197,41] cannot find symbol
+[ERROR]   symbol:   method getAccount()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[198,34] cannot find symbol
+[ERROR]   symbol:   method getDebitAmount()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[199,35] cannot find symbol
+[ERROR]   symbol:   method getCreditAmount()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[200,34] cannot find symbol
+[ERROR]   symbol:   method getDescription()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[201,29] cannot find symbol
+[ERROR]   symbol:   method getItem()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[201,54] cannot find symbol
+[ERROR]   symbol:   method getItem()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[202,31] cannot find symbol
+[ERROR]   symbol:   method getItem()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[202,56] cannot find symbol
+[ERROR]   symbol:   method getItem()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[203,32] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[203,60] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[204,34] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[204,62] cannot find symbol
+[ERROR]   symbol:   method getCompany()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[205,32] cannot find symbol
+[ERROR]   symbol:   method getWarehouse()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[206,31] cannot find symbol
+[ERROR]   symbol:   method getContract()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/JournalEntryService.java:[207,31] cannot find symbol
+[ERROR]   symbol:   method getQuantity()
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[89,13] cannot find symbol
+[ERROR]   symbol:   method setJournalEntry(com.example.accounts.entity.JournalEntry)
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[94,13] cannot find symbol
+[ERROR]   symbol:   method setJournalEntry(<nulltype>)
+[ERROR]   location: variable line of type com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[99,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method getDebitAmount()
+[ERROR]     location: class com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/JournalEntry.java:[103,22] invalid method reference
+[ERROR]   cannot find symbol
+[ERROR]     symbol:   method getCreditAmount()
+[ERROR]     location: class com.example.accounts.entity.JournalEntryLine
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/entity/ChartOfAccount.java:[79,18] cannot find symbol
+[ERROR]   symbol:   method setChartOfAccount(com.example.accounts.entity.ChartOfAccount)
+[ERROR]   location: variable dimension of type com.example.accounts.entity.AccountDimension
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

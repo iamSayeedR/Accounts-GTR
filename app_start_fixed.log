@@ -1,0 +1,44 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.example.accounts:accounts-service >----------------
+[INFO] Building accounts-service 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.3.2:clean (default-clean) @ accounts-service ---
+[INFO] Deleting C:\Users\Sayeed Rizwan\Downloads\accounts-service\accounts-service\target
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:3.2.0:run (default-cli) > test-compile @ accounts-service >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ accounts-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 28 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ accounts-service ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 132 source files with javac [debug release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[96,92] cannot find symbol
+  symbol:   method getAccountName()
+  location: class com.example.accounts.entity.ChartOfAccount
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  31.761 s
+[INFO] Finished at: 2026-01-10T11:57:21+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project accounts-service: Compilation failure
+[ERROR] /C:/Users/Sayeed Rizwan/Downloads/accounts-service/accounts-service/src/main/java/com/example/accounts/service/ItemGLAccountService.java:[96,92] cannot find symbol
+[ERROR]   symbol:   method getAccountName()
+[ERROR]   location: class com.example.accounts.entity.ChartOfAccount
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

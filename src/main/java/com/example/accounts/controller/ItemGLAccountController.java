@@ -1,8 +1,8 @@
 package com.example.accounts.controller;
 
-import com.example.accounts.dto.ExpenseItemTypeRequest;
-import com.example.accounts.dto.ExpenseItemTypeResponse;
-import com.example.accounts.service.ExpenseItemTypeService;
+import com.example.accounts.dto.ItemGLAccountRequest;
+import com.example.accounts.dto.ItemGLAccountResponse;
+import com.example.accounts.service.ItemGLAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/expense-item-types")
+@RequestMapping("/api/item-gl-accounts")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:5174")
-public class ExpenseItemTypeController {
+public class ItemGLAccountController {
 
-    private final ExpenseItemTypeService service;
+    private final ItemGLAccountService service;
 
     @PostMapping
-    public ResponseEntity<ExpenseItemTypeResponse> create(@RequestBody ExpenseItemTypeRequest request) {
+    public ResponseEntity<ItemGLAccountResponse> create(@RequestBody ItemGLAccountRequest request) {
         return new ResponseEntity<>(service.create(request), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ExpenseItemTypeResponse> getById(@PathVariable Long id) {
+    public ResponseEntity<ItemGLAccountResponse> getById(@PathVariable Long id) {
         return ResponseEntity.ok(service.getById(id));
     }
 
     @GetMapping
-    public ResponseEntity<List<ExpenseItemTypeResponse>> getAll() {
+    public ResponseEntity<List<ItemGLAccountResponse>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ExpenseItemTypeResponse> update(@PathVariable Long id,
-            @RequestBody ExpenseItemTypeRequest request) {
+    public ResponseEntity<ItemGLAccountResponse> update(@PathVariable Long id,
+            @RequestBody ItemGLAccountRequest request) {
         return ResponseEntity.ok(service.update(id, request));
     }
 

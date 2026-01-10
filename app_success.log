@@ -1,0 +1,15 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------< com.example.accounts:accounts-service >----------------
+[INFO] Building accounts-service 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot-maven-plugin:3.2.0:run (default-cli) > test-compile @ accounts-service >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ accounts-service ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 28 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ accounts-service ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 127 source files with javac [debug release 21] to target\classes
