@@ -1,8 +1,8 @@
 {
     "info": {
-        "_postman_id": "accounts-service-collection-v2",
-        "name": "Accounts Service API - Complete Collection",
-        "description": "Comprehensive API collection for Accounts & General Ledger Service with accurate request bodies",
+        "_postman_id": "accounts-service-collection-v3",
+        "name": "Accounts Service API - Final",
+        "description": "Comprehensive API collection for Accounts & General Ledger Service. Updated to include all CRUD operations, Item GL Accounts, and Cash Flow Transactions.",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "variable": [
@@ -353,6 +353,33 @@
                                 "journal-entries",
                                 "status",
                                 "POSTED"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Journal Entry",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"description\": \"Updated Description\",\n  \"referenceNumber\": \"REF-001-UPD\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/journal-entries/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "journal-entries",
+                                "1"
                             ]
                         }
                     }
@@ -890,6 +917,33 @@
                     }
                 },
                 {
+                    "name": "Update Invoice",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"notes\": \"Updated Payment Terms\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/invoices/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "invoices",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "Post Invoice",
                     "request": {
                         "method": "POST",
@@ -913,133 +967,20 @@
                             ]
                         }
                     }
-                }
-            ]
-        },
-        {
-            "name": "Fixed Assets",
-            "item": [
-                {
-                    "name": "Get All Fixed Assets",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/fixed-assets",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "fixed-assets"
-                            ]
-                        }
-                    }
                 },
                 {
-                    "name": "Get Fixed Asset by ID",
+                    "name": "Delete Invoice",
                     "request": {
-                        "method": "GET",
+                        "method": "DELETE",
                         "header": [],
                         "url": {
-                            "raw": "{{baseUrl}}/api/fixed-assets/1",
+                            "raw": "{{baseUrl}}/api/invoices/1",
                             "host": [
                                 "{{baseUrl}}"
                             ],
                             "path": [
                                 "api",
-                                "fixed-assets",
-                                "1"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Fixed Asset Classes",
-            "item": [
-                {
-                    "name": "Get All Asset Classes",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/fixed-asset-classes",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "fixed-asset-classes"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Get Asset Class by ID",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/fixed-asset-classes/1",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "fixed-asset-classes",
-                                "1"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Depreciation",
-            "item": [
-                {
-                    "name": "Calculate Depreciation",
-                    "request": {
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n  \"periodDate\": \"2026-01-31\"\n}"
-                        },
-                        "url": {
-                            "raw": "{{baseUrl}}/api/depreciation/calculate",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "depreciation",
-                                "calculate"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "Get Depreciation Schedule",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/depreciation/schedule/1",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "depreciation",
-                                "schedule",
+                                "invoices",
                                 "1"
                             ]
                         }
@@ -1131,6 +1072,32 @@
             "name": "Expense Item Types",
             "item": [
                 {
+                    "name": "Create Expense Item Type",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Travel Expenses\",\n  \"description\": \"Costs related to business travel\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/expense-item-types",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "expense-item-types"
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "Get All Expense Item Types",
                     "request": {
                         "method": "GET",
@@ -1143,6 +1110,69 @@
                             "path": [
                                 "api",
                                 "expense-item-types"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Expense Item Type by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/expense-item-types/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "expense-item-types",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Expense Item Type",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Travel Expenses - Updated\",\n  \"description\": \"Updated description\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/expense-item-types/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "expense-item-types",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Expense Item Type",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/expense-item-types/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "expense-item-types",
+                                "1"
                             ]
                         }
                     }
@@ -1260,227 +1290,6 @@
             ]
         },
         {
-            "name": "Capital Improvements",
-            "item": [
-                {
-                    "name": "Get All Capital Improvements",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/capital-improvements",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "capital-improvements"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Individual Fixed Assets",
-            "item": [
-                {
-                    "name": "Get All Individual Fixed Assets",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/individual-fixed-assets",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "individual-fixed-assets"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Fixed Asset Entries",
-            "item": [
-                {
-                    "name": "Get All Fixed Asset Entries",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/fixed-asset-entries",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "fixed-asset-entries"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Fixed Asset Reports",
-            "item": [
-                {
-                    "name": "Get Fixed Asset Report",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/fixed-assets/reports",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "fixed-assets",
-                                "reports"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Sales",
-            "item": [
-                {
-                    "name": "Get All Sales",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/sales",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "sales"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Sale Preparations",
-            "item": [
-                {
-                    "name": "Get All Sale Preparations",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/sale-preparations",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "sale-preparations"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Write-Offs",
-            "item": [
-                {
-                    "name": "Get All Write-Offs",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/write-offs",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "write-offs"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Conservations",
-            "item": [
-                {
-                    "name": "Get All Conservations",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/conservations",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "conservations"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Parameter Changes",
-            "item": [
-                {
-                    "name": "Get All Parameter Changes",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/parameter-changes",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "parameter-changes"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
-            "name": "Monthly Usage",
-            "item": [
-                {
-                    "name": "Get Monthly Usage",
-                    "request": {
-                        "method": "GET",
-                        "header": [],
-                        "url": {
-                            "raw": "{{baseUrl}}/api/monthly-usage",
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "path": [
-                                "api",
-                                "monthly-usage"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        {
             "name": "Audit Logs",
             "item": [
                 {
@@ -1496,6 +1305,265 @@
                             "path": [
                                 "api",
                                 "audit-logs"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Item GL Accounts",
+            "item": [
+                {
+                    "name": "Create Item GL Account Map",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"itemId\": 1,\n  \"glAccountId\": 1000,\n  \"mappingType\": \"DEFAULT\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/item-gl-accounts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "item-gl-accounts"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Item GL Account Maps",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/item-gl-accounts",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "item-gl-accounts"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Item GL Account Map by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/item-gl-accounts/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "item-gl-accounts",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Item GL Account Map",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"itemId\": 1,\n  \"glAccountId\": 1001,\n  \"mappingType\": \"OVERRIDE\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/item-gl-accounts/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "item-gl-accounts",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Item GL Account Map",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/item-gl-accounts/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "item-gl-accounts",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Cash Flow Transactions",
+            "item": [
+                {
+                    "name": "Create Cash Flow Transaction",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"transactionNumber\": \"CFT-001\",\n  \"transactionDate\": \"2026-01-10\",\n  \"cashFlowItemId\": 1,\n  \"flowType\": \"INFLOW\",\n  \"amount\": 500.00,\n  \"description\": \"Test Cash Flow Transaction\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/cash-flow-transactions",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cash-flow-transactions"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Cash Flow Transactions",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/cash-flow-transactions",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cash-flow-transactions"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Cash Flow Transaction by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/cash-flow-transactions/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cash-flow-transactions",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Unposted Cash Flow Transactions",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/cash-flow-transactions/unposted",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cash-flow-transactions",
+                                "unposted"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Cash Flow Transaction",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"amount\": 600.00,\n  \"description\": \"Updated Description\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{baseUrl}}/api/cash-flow-transactions/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cash-flow-transactions",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Post Cash Flow Transaction",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/cash-flow-transactions/1/post",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cash-flow-transactions",
+                                "1",
+                                "post"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Cash Flow Transaction",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/cash-flow-transactions/1",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "cash-flow-transactions",
+                                "1"
                             ]
                         }
                     }
