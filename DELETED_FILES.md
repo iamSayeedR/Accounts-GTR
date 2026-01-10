@@ -136,3 +136,9 @@ Reason: SaleController depended on FixedAssetSale which was deleted.
 ## Restoration (2026-01-09 11:32:24)
 Restored generic Item module files referenced in previous deletion step, as they are required for Invoice functionality.
 
+
+
+## Liquibase Cleanup (2026-01-09 11:39:32)
+Deleted Liquibase change files for Fixed Asset modules:
+
+- db/changelog/changes/43-*\n- db/changelog/changes/44-*\n- db/changelog/changes/45-*\n- db/changelog/changes/46-*\n- db/changelog/changes/47-*\n- db/changelog/changes/48-*\n- db/changelog/changes/49-*\n- db/changelog/changes/50-*\n- db/changelog/changes/51-*\n- db/changelog/changes/52-*\n- db/changelog/changes/53-*\n- db/changelog/changes/54-*\n- db/changelog/changes/55-*\n- db/changelog/changes/56-*\n- db/changelog/changes/57-*\n
