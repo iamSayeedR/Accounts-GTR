@@ -14,7 +14,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -248,16 +251,13 @@ public class ChartOfAccountService {
                 if (parent != null) {
                     // Add this node to the parent's children list (using Parent's Code)
                     childrenMap.get(parent.getAccountCode()).add(node);
-                    node.setLevel(calculateLevel(node.getAccountCode()));
                 } else {
                     // Parent not found, treat as root
                     rootNodes.add(node);
-                    node.setLevel(1);
                 }
             } else {
                 // Root level account (Parent is "Accounts Group" or null)
                 rootNodes.add(node);
-                node.setLevel(1);
             }
         }
 
@@ -281,10 +281,24 @@ public class ChartOfAccountService {
             }
         }
 
+        // Fourth pass: Assign levels recursively
+        for (ChartOfAccountTreeNode root : rootNodes) {
+            assignLevels(root, 1);
+        }
+
         // Sort root nodes by account code
         rootNodes.sort((a, b) -> a.getAccountCode().compareTo(b.getAccountCode()));
 
         return rootNodes;
+    }
+
+    private void assignLevels(ChartOfAccountTreeNode node, int currentLevel) {
+        node.setLevel(currentLevel);
+        if (node.getChildren() != null && !node.getChildren().isEmpty()) {
+            for (ChartOfAccountTreeNode child : node.getChildren()) {
+                assignLevels(child, currentLevel + 1);
+            }
+        }
     }
 
     private ChartOfAccountTreeNode mapToTreeNode(ChartOfAccount account) {
@@ -310,18 +324,6 @@ public class ChartOfAccountService {
                 .hasChildren(false) // Will be set later
                 .children(new java.util.ArrayList<>())
                 .build();
-    }
-
-    private Integer calculateLevel(String accountCode) {
-        // Level based on account code structure
-        // 1000000 = Level 1
-        // 1010000 = Level 2
-        // 1010100 = Level 3
-        if (accountCode.endsWith("00000"))
-            return 1;
-        if (accountCode.endsWith("0000"))
-            return 2;
-        return 3;
     }
 
     private ChartOfAccountResponse mapToResponse(ChartOfAccount account) {
@@ -369,5 +371,76 @@ public class ChartOfAccountService {
                 .filter(ChartOfAccount::getIsActive)
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
+    }
+
+    public List<String> getDescriptionsByParentGroup(String parentGroup) {
+        return chartOfAccountRepository.findDescriptionsByParentGroup(parentGroup);
+    }
+
+    public List<String> getParentGroupDropdownOptions() {
+        Set<String> options = new LinkedHashSet<>(); // Use Set to avoid duplicates
+
+        // 1. Add Hardcoded Values
+        options.add("Inventories");
+        options.add("Assets");
+        options.add("Liabilities");
+        options.add("Equity");
+
+        // 2. Add all descriptions whose Section is "Accounts Group" OR whose Parent
+        // Group is "Accounts Group"
+        // This covers the specific set of 32 grouping nodes identified AND any generic
+        // root nodes
+        options.addAll(
+                chartOfAccountRepository.findDescriptionsBySectionOrParentGroup("Accounts Group", "Accounts Group"));
+
+        return new ArrayList<>(options);
+    }
+
+    public List<String> getSectionDropdownOptions() {
+        List<String> rawSections = chartOfAccountRepository.findDistinctSections();
+        List<String> formattedSections = new java.util.ArrayList<>();
+
+        for (String raw : rawSections) {
+            if (raw == null)
+                continue;
+
+            // Format: BS_INVENTORIES -> BS Inventories
+            String formatted = formatSectionName(raw);
+            formattedSections.add(formatted);
+        }
+
+        return formattedSections;
+    }
+
+    private String formatSectionName(String raw) {
+        if (raw == null || raw.isEmpty())
+            return raw;
+
+        String[] parts = raw.split("_");
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < parts.length; i++) {
+            String part = parts[i];
+            if (part.isEmpty())
+                continue;
+
+            // BS or PL usually stays uppercase
+            if (part.equalsIgnoreCase("BS") || part.equalsIgnoreCase("PL")) {
+                sb.append(part.toUpperCase());
+            } else {
+                // Capitalize first letter, lower rest
+                if (part.length() > 1) {
+                    sb.append(part.substring(0, 1).toUpperCase())
+                            .append(part.substring(1).toLowerCase());
+                } else {
+                    sb.append(part.toUpperCase());
+                }
+            }
+
+            if (i < parts.length - 1) {
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
     }
 }

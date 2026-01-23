@@ -252,6 +252,77 @@
                             ]
                         }
                     }
+                },
+                {
+                    "name": "Get Parent Group Dropdown Options",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "pm.test(\"Status code is 200\", function () {",
+                                    "    pm.response.to.have.status(200);",
+                                    "});",
+                                    "",
+                                    "pm.test(\"Verify Expected Groups Exist\", function () {",
+                                    "    var jsonData = pm.response.json();",
+                                    "    var expectedGroups = [",
+                                    "        \"Non-Current Assets\", \"Current Assets\", \"Equity\", \"Non-Current Liabilities\", \"Current Liabilities\",",
+                                    "        \"Income\", \"Expenses\", \"Profit or Loss\", \"Off-Balance Sheet Accounts\",",
+                                    "        \"Property, Plant and Equipment\", \"Investment Property\", \"Intangible Assets\",",
+                                    "        \"Non-Current Financial Assets\", \"Other Non-Current Assets\", \"Inventories\",",
+                                    "        \"Trade and Other Current Receivables\", \"Prepayments to Suppliers\", \"Cash and Cash Equivalents\",",
+                                    "        \"Staff Settlements\", \"Assets Classified as Held for Sale\", \"PDCs Received\", \"Issued Share Capital\",",
+                                    "        \"Non-Current Loans Received\", \"Non-Current Bank Loans Received\", \"Current Financial Liabilities\",",
+                                    "        \"Current Loans\", \"Current Bank Loans\", \"Current Finance Lease Liabilities\",",
+                                    "        \"Trade and Other Current Payables\", \"Revenue\", \"Trade Discounts and Rebates\", \"Output VAT\",",
+                                    "        \"Cost of Sales\", \"COS: Employee Benefits Expenses\", \"Administrative Expenses\", \"Finance and Other Expenses\"",
+                                    "    ];",
+                                    "    ",
+                                    "    expectedGroups.forEach(function(group) {",
+                                    "        pm.expect(jsonData).to.include(group);",
+                                    "    });",
+                                    "});"
+                                ],
+                                "type": "text/javascript"
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/chart-of-accounts/dropdown/parent-groups",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "chart-of-accounts",
+                                "dropdown",
+                                "parent-groups"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Section Dropdown Options",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/chart-of-accounts/dropdown/sections",
+                            "host": [
+                                "{{baseUrl}}"
+                            ],
+                            "path": [
+                                "api",
+                                "chart-of-accounts",
+                                "dropdown",
+                                "sections"
+                            ]
+                        }
+                    }
                 }
             ]
         },

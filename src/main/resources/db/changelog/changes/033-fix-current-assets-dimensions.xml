@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="033-fix-current-assets-dimensions" author="system">
+        <comment>Fix Current Assets dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- STEP 1: DELETE ALL INCORRECT DIMENSIONS FOR CURRENT ASSETS
+            -- ========================================
+            
+            -- Delete dimensions from parent groups (should have NO dimensions)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('2010000', '2020000', '2020100', '2030000', '2030700', '2040000', '2050000', '2060000', '2070000', '2100000')
+            );
+            
+            -- Delete all existing dimensions for accounts that need fixing
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN (
+                    '2010799', '2020101', '2020102', '2030400', '2080000', '2090000'
+                )
+            );
+            
+            -- ========================================
+            -- STEP 2: ADD CORRECT DIMENSIONS
+            -- ========================================
+            
+            -- ========================================
+            -- INVENTORIES (2010000-2010799)
+            -- ========================================
+            -- 2010000: NO DIMENSIONS (parent group)
+            -- 2010100: Item + Warehouse (already correct)
+            -- 2010200: Item + Warehouse (already correct)
+            
+            -- 2010300: NO DIMENSIONS (parent group - currently has wrong type, will fix in next changeset)
+            
+            -- 2010301: Expense Item + Cost Object (already correct)
+            -- 2010302: Expense Item + Cost Object (already correct)
+            -- 2010303: Item + Warehouse (already correct)
+            -- 2010304: Expense Item + Cost Object (already correct)
+            -- 2010400: Item + Warehouse (already correct)
+            -- 2010500: Item + Warehouse (already correct)
+            -- 2010600: Item + Warehouse (already correct)
+            -- 2010700: Item + Company (already correct)
+            
+            -- 2010799: Item + Company (need to add - was using wrong code 2010733)
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'ITEM', false, true, true 
+            FROM chart_of_accounts WHERE account_code = '2010799';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'COMPANY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2010799';
+            
+            -- ========================================
+            -- CURRENT FINANCIAL ASSETS (2020000-2020300)
+            -- ========================================
+            -- 2020000: NO DIMENSIONS (parent group)
+            -- 2020100: NO DIMENSIONS (parent group)
+            
+            -- 2020101: Company + Contract
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'COMPANY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2020101';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'CONTRACT', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2020101';
+            
+            -- 2020102: Company + Contract
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'COMPANY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2020102';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'CONTRACT', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2020102';
+            
+            -- 2020200: Company + Contract (already correct)
+            -- 2020300: Company + Contract (already correct)
+            
+            -- ========================================
+            -- TRADE AND OTHER CURRENT RECEIVABLES (2030000-2031100)
+            -- ========================================
+            -- 2030000: NO DIMENSIONS (parent group)
+            -- 2030100: Company + Contract (already correct)
+            -- 2030200: Company + Contract (already correct)
+            -- 2030300: Company + Contract (already correct)
+            
+            -- 2030400: Company + Contract (need to add - was using wrong code 2030340)
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'COMPANY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2030400';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'CONTRACT', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2030400';
+            
+            -- 2030500: Company + Contract (already correct)
+            -- 2030600: Tax Type + Types of Payments (already correct)
+            
+            -- 2030700: NO DIMENSIONS (parent group)
+            -- 2030701-2030708: Company + Basis + Input VAT Type (already correct)
+            
+            -- 2030800: Tax Type + Types of Payments (already correct)
+            -- 2030900: Company + Prepayments Document (already correct)
+            -- 2031000: Tax Type + Types of Payments (already correct)
+            -- 2031100: Company + Contract (already correct)
+            
+            -- ========================================
+            -- PREPAYMENTS TO SUPPLIERS (2040000-2040200)
+            -- ========================================
+            -- 2040000: NO DIMENSIONS (parent group)
+            -- 2040100: Company + Contract (already correct)
+            -- 2040200: Company + Contract (already correct)
+            
+            -- ========================================
+            -- CASH AND CASH EQUIVALENTS (2050000-2050500)
+            -- ========================================
+            -- 2050000: NO DIMENSIONS (parent group)
+            -- 2050100: Cash Flow Item (already correct)
+            -- 2050200: Bank Account + Cash Flow Item (already correct)
+            -- 2050300: Cash Flow Item (already correct)
+            -- 2050400: Bank Account + Cash Flow Item (already correct)
+            -- 2050500: Cash Equivalent + Cash Flow Item (already correct)
+            
+            -- ========================================
+            -- STAFF SETTLEMENTS (2060000-2060500)
+            -- ========================================
+            -- 2060000: NO DIMENSIONS (parent group)
+            -- 2060100: Employee (already correct)
+            -- 2060200: Employee (already correct)
+            -- 2060300: Employee (already correct)
+            -- 2060400: Employee (already correct)
+            -- 2060500: Employee (already correct)
+            
+            -- ========================================
+            -- ASSETS CLASSIFIED AS HELD FOR SALE (2070000-2070300)
+            -- ========================================
+            -- 2070000: NO DIMENSIONS (parent group)
+            -- 2070100: Fixed Asset (already correct)
+            -- 2070200: Investment Property (already correct)
+            -- 2070300: Fixed Asset (already correct)
+            
+            -- ========================================
+            -- OTHER CURRENT ASSETS (2080000)
+            -- ========================================
+            -- 2080000: Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '2080000';
+            
+            -- ========================================
+            -- DEFERRED EXPENSES (2090000)
+            -- ========================================
+            -- 2090000: Deferred Expenses (already correct - just verify)
+            
+            -- ========================================
+            -- PDCS RECEIVED (2100000-2100200)
+            -- ========================================
+            -- 2100000: NO DIMENSIONS (parent group)
+            -- 2100100: Company + Contract (already correct)
+            -- 2100200: Employee (already correct)
+            
+            -- ========================================
+            -- WORK IN PROGRESS / CONTRACT ASSETS (2110000-2110099)
+            -- ========================================
+            -- 2110000: Company + Contract (already correct)
+            -- 2110099: Company + Contract (already correct)
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

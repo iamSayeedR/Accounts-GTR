@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="037-fix-income-dimensions" author="system">
+        <comment>Fix Income dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- INCOME (6000000-6040000)
+            -- ========================================
+            
+            -- Remove dimensions from parent groups (should have NO dimensions)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('6000000', '6010000', '6010500', '6010600', '6030000')
+            );
+            
+            -- ========================================
+            -- VERIFICATION: All other accounts are already correct
+            -- ========================================
+            -- 6000000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 6010000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 6010100-6010400: Income Item + Item + Business Activity - CORRECT
+            -- 6010500: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 6010501-6010504: Income Item + Item + Business Activity - CORRECT
+            -- 6010600: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 6010601-6010604: Income Item + Item + Business Activity - CORRECT
+            -- 6020000: Income Item + Business Activity - CORRECT
+            -- 6030000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 6030100: Income Item + Business Activity - CORRECT
+            -- 6030200: Income Item + Business Activity - CORRECT
+            -- 6040000: Income Item + Business Activity - CORRECT
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

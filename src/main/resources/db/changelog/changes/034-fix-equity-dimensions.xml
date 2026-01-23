@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="034-fix-equity-dimensions" author="system">
+        <comment>Fix Equity dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- EQUITY (3000000-3060000)
+            -- ========================================
+            
+            -- Remove dimensions from parent group (3000000)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code = '3000000'
+            );
+            
+            -- ========================================
+            -- VERIFICATION: All other equity accounts are already correct
+            -- ========================================
+            -- 3000000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 3010000: Company + Equity Movements Items - CORRECT
+            -- 3020000: Equity Movements Items - CORRECT
+            -- 3030000: Company + Equity Movements Items - CORRECT
+            -- 3040000: Company + Equity Movements Items - CORRECT
+            -- 3050000: Company + Equity Movements Items - CORRECT
+            -- 3060000: Equity Movements Items - CORRECT
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

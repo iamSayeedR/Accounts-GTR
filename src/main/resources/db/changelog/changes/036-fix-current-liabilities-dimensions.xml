@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="036-fix-current-liabilities-dimensions" author="system">
+        <comment>Fix Current Liabilities dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- CURRENT LIABILITIES (5000000-5100000)
+            -- ========================================
+            
+            -- Remove dimensions from parent groups (should have NO dimensions)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('5000000', '5010000', '5010100', '5010200', '5010300', '5020000', '5040000', '5090000')
+            );
+            
+            -- ========================================
+            -- ADD MISSING DIMENSIONS
+            -- ========================================
+            
+            -- 5010400: Current Portion of Non-Current Loans - Company + Contract
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'COMPANY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '5010400';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'CONTRACT', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '5010400';
+            
+            -- 5010500: Current Portion of Non-Current Bank Loans - Company + Contract
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'COMPANY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '5010500';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'CONTRACT', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '5010500';
+            
+            -- 5010600: Current Portion of Non-Current Finance Lease Liabilities - Company + Contract
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'COMPANY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '5010600';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'CONTRACT', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '5010600';
+            
+            -- ========================================
+            -- VERIFICATION: All other accounts are already correct
+            -- ========================================
+            -- 5000000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5010000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5010100: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5010101: Company + Contract - CORRECT
+            -- 5010102: Company + Contract - CORRECT
+            -- 5010200: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5010201: Company + Contract - CORRECT
+            -- 5010202: Company + Contract - CORRECT
+            -- 5010300: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5010301: Company + Contract - CORRECT
+            -- 5010302: Company + Contract - CORRECT
+            -- 5010400: Company + Contract - FIXED ABOVE
+            -- 5010500: Company + Contract - FIXED ABOVE
+            -- 5010600: Company + Contract - FIXED ABOVE
+            -- 5020000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5020100-5020400: Company + Contract - CORRECT
+            -- 5020500-5020800: Tax Type + Types of Payments - CORRECT
+            -- 5020900: Company + Contract - CORRECT
+            -- 5030000: Company + Contract - CORRECT
+            -- 5040000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5040100-5040600: Employee - CORRECT
+            -- 5050000: Company + Contract - CORRECT
+            -- 5060000: Company + Contract - CORRECT
+            -- 5070000: Company + Prepayments Document - CORRECT
+            -- 5080000: Deferred Revenue - CORRECT
+            -- 5090000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 5090100: Company + Contract - CORRECT
+            -- 5090200: Employee - CORRECT
+            -- 5100000: Company + Contract - CORRECT
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="038-fix-expenses-dimensions" author="system">
+        <comment>Fix Expenses dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- EXPENSES (7000000-7070000)
+            -- ========================================
+            
+            -- Remove dimensions from parent groups (should have NO dimensions)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('7000000', '7010000', '7010600', '7030000', '7050000')
+            );
+            
+            -- ========================================
+            -- VERIFICATION: All other accounts are already correct
+            -- ========================================
+            -- 7000000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 7010000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 7010100-7010300: Expense Item + Item + Business Activity - CORRECT
+            -- 7010400-7010500: Expense Item + Fixed Asset + Business Activity - CORRECT
+            -- 7010600: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 7010601-7010602: Expense Item + Employee + Business Activity - CORRECT
+            -- 7010700: Expense Item + Business Activity - CORRECT
+            -- 7010800: Expense Item + Item + Business Activity - CORRECT
+            -- 7020000: Expense Item + Business Activity - CORRECT
+            -- 7030000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 7030100: Expense Item + Employee + Business Activity - CORRECT
+            -- 7030200-7030300: Expense Item + Fixed Asset + Business Activity - CORRECT
+            -- 7030400-7030500: Expense Item + Business Activity - CORRECT
+            -- 7040000: Expense Item + Business Activity - CORRECT
+            -- 7050000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 7050100: Expense Item + Business Activity - CORRECT
+            -- 7050200: Expense Item + Business Activity - CORRECT
+            -- 7060000: Expense Item + Tax Type + Business Activity - CORRECT
+            -- 7070000: Expense Item + Business Activity - CORRECT
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

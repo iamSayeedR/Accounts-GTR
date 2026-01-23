@@ -58,6 +58,27 @@ public class ChartOfAccountController {
         return ResponseEntity.ok(responses);
     }
 
+    @GetMapping("/descriptions/parent-group/{parentGroup}")
+    @Operation(summary = "Get all GL account descriptions by parent group")
+    public ResponseEntity<List<String>> getDescriptionsByParentGroup(@PathVariable String parentGroup) {
+        List<String> descriptions = chartOfAccountService.getDescriptionsByParentGroup(parentGroup);
+        return ResponseEntity.ok(descriptions);
+    }
+
+    @GetMapping("/dropdown/parent-groups")
+    @Operation(summary = "Get customized parent group dropdown options", description = "Returns list including: Inventories, Assets, Liabilities, Equity, and all root groups (Account Group children)")
+    public ResponseEntity<List<String>> getParentGroupDropdownOptions() {
+        List<String> options = chartOfAccountService.getParentGroupDropdownOptions();
+        return ResponseEntity.ok(options);
+    }
+
+    @GetMapping("/dropdown/sections")
+    @Operation(summary = "Get all available sections for dropdown", description = "Returns list of all used sections formatted for display (e.g. 'BS Inventories')")
+    public ResponseEntity<List<String>> getSectionDropdownOptions() {
+        List<String> options = chartOfAccountService.getSectionDropdownOptions();
+        return ResponseEntity.ok(options);
+    }
+
     @GetMapping
     @Operation(summary = "Get all GL accounts")
     public ResponseEntity<List<ChartOfAccountResponse>> getAllAccounts() {

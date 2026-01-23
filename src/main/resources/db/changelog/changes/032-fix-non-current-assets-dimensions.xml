@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="032-fix-non-current-assets-dimensions" author="system">
+        <comment>Fix Non-Current Assets dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- STEP 1: DELETE ALL INCORRECT DIMENSIONS FOR NON-CURRENT ASSETS
+            -- ========================================
+            
+            -- Delete dimensions from parent groups (should have NO dimensions)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('1010000', '1020000', '1030000', '1090000')
+            );
+            
+            -- Delete all dimensions from Property, Plant and Equipment accounts (will re-add correct ones)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('1010100', '1010200', '1010300', '1010400', '1010500', '1010600')
+            );
+            
+            -- Delete all dimensions from Investment Property accounts (will re-add correct ones)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('1020100', '1020200', '1020300', '1020400', '1020500', '1020600')
+            );
+            
+            -- Delete all dimensions from Intangible Assets accounts (will re-add correct ones)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('1030100', '1030200', '1030300', '1030400', '1030500')
+            );
+            
+            -- Delete dimensions from Other Non-Current Assets (will re-add correct ones)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('1090100', '1090200')
+            );
+            
+            -- ========================================
+            -- STEP 2: ADD CORRECT DIMENSIONS
+            -- ========================================
+            
+            -- ========================================
+            -- PROPERTY, PLANT AND EQUIPMENT (1010000-1010600)
+            -- ========================================
+            -- 1010000: NO DIMENSIONS (parent group)
+            
+            -- 1010100: Fixed Asset
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010100';
+            
+            -- 1010200: Fixed Asset
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010200';
+            
+            -- 1010300: Fixed Asset
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010300';
+            
+            -- 1010400: Fixed Asset + Expense Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010400';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'EXPENSE_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010400';
+            
+            -- 1010500: Item + Warehouse
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010500';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'WAREHOUSE', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010500';
+            
+            -- 1010600: Fixed Asset + Expense Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010600';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'EXPENSE_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1010600';
+            
+            -- ========================================
+            -- INVESTMENT PROPERTY (1020000-1020600)
+            -- ========================================
+            -- 1020000: NO DIMENSIONS (parent group)
+            
+            -- 1020100: Investment Property
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'INVESTMENT_PROPERTY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020100';
+            
+            -- 1020200: Investment Property
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'INVESTMENT_PROPERTY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020200';
+            
+            -- 1020300: Investment Property
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'INVESTMENT_PROPERTY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020300';
+            
+            -- 1020400: Investment Property
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'INVESTMENT_PROPERTY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020400';
+            
+            -- 1020500: Fixed Asset + Expense Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020500';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'EXPENSE_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020500';
+            
+            -- 1020600: Fixed Asset + Expense Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020600';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'EXPENSE_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1020600';
+            
+            -- ========================================
+            -- INTANGIBLE ASSETS (1030000-1030500)
+            -- ========================================
+            -- 1030000: NO DIMENSIONS (parent group)
+            
+            -- 1030100: Fixed Asset
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1030100';
+            
+            -- 1030200: Fixed Asset
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1030200';
+            
+            -- 1030300: Fixed Asset
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1030300';
+            
+            -- 1030400: Fixed Asset + Expense Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1030400';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'EXPENSE_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1030400';
+            
+            -- 1030500: Fixed Asset + Expense Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'FIXED_ASSET', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1030500';
+            
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'EXPENSE_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1030500';
+            
+            -- ========================================
+            -- NON-CURRENT FINANCIAL ASSETS (1040000-1040403)
+            -- ========================================
+            -- These are already correct in the database, no changes needed
+            -- 1040000: NO DIMENSIONS (parent group)
+            -- 1040100: NO DIMENSIONS (parent group)
+            -- 1040101-1040103: Company + Contract (already correct)
+            -- 1040200: Company + Contract (already correct)
+            -- 1040300: Company + Contract (already correct)
+            -- 1040400: NO DIMENSIONS (parent group)
+            -- 1040401-1040403: Company + Contract (already correct)
+            
+            -- ========================================
+            -- OTHER NON-CURRENT ASSETS (1050000-1090200)
+            -- ========================================
+            -- 1050000: Tax Type (already correct)
+            -- 1060000: Item + Warehouse (already correct)
+            -- 1070000: Deferred Expenses (already correct)
+            -- 1090000: NO DIMENSIONS (parent group - already correct)
+            
+            -- 1090100: Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1090100';
+            
+            -- 1090200: Item
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '1090200';
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

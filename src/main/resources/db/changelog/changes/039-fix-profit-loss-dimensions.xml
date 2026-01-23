@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="039-fix-profit-loss-dimensions" author="system">
+        <comment>Fix Profit or Loss dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- PROFIT OR LOSS (8000000-8010000)
+            -- ========================================
+            
+            -- Remove existing dimensions from 8010000 and add correct ones
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code = '8010000'
+            );
+            
+            -- Add Income Item dimension
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'INCOME_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '8010000';
+            
+            -- Add Expense Item dimension
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'EXPENSE_ITEM', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '8010000';
+            
+            -- Add Business Activity dimension
+            INSERT INTO account_dimensions (account_id, dimension_type, turnovers_only, track_amount, track_quantitative)
+            SELECT account_id, 'BUSINESS_ACTIVITY', false, true, false 
+            FROM chart_of_accounts WHERE account_code = '8010000';
+            
+            -- ========================================
+            -- VERIFICATION
+            -- ========================================
+            -- 8000000: NO DIMENSIONS (parent group) - ALREADY CORRECT
+            -- 8010000: Income Item + Expense Item + Business Activity - FIXED ABOVE
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

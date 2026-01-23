@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="035-fix-non-current-liabilities-dimensions" author="system">
+        <comment>Fix Non-Current Liabilities dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- NON-CURRENT LIABILITIES (4000000-4080000)
+            -- ========================================
+            
+            -- Remove dimensions from parent groups (should have NO dimensions)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('4000000', '4010000', '4020000')
+            );
+            
+            -- ========================================
+            -- VERIFICATION: All other accounts are already correct
+            -- ========================================
+            -- 4000000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 4010000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 4010100: Company + Contract - CORRECT
+            -- 4010200: Company + Contract - CORRECT
+            -- 4020000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 4020100: Company + Contract - CORRECT
+            -- 4020200: Company + Contract - CORRECT
+            -- 4030000: Company + Contract - CORRECT
+            -- 4040000: Company + Contract - CORRECT
+            -- 4050000: Tax Type - CORRECT
+            -- 4060000: Company + Contract - CORRECT
+            -- 4070000: Deferred Revenue - CORRECT
+            -- 4080000: Company + Contract - CORRECT
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="040-fix-off-balance-sheet-dimensions" author="system">
+        <comment>Fix Off-Balance Sheet Accounts dimensions to match exact specification</comment>
+        
+        <sql>
+            -- ========================================
+            -- OFF-BALANCE SHEET ACCOUNTS (9000000-9040000)
+            -- ========================================
+            
+            -- Remove dimensions from parent groups (should have NO dimensions)
+            DELETE FROM account_dimensions WHERE account_id IN (
+                SELECT account_id FROM chart_of_accounts 
+                WHERE account_code IN ('9000000', '9010000', '9020000')
+            );
+            
+            -- ========================================
+            -- VERIFICATION: All other accounts are already correct
+            -- ========================================
+            -- 9000000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 9010000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 9010100: Cash Flow Item - CORRECT
+            -- 9010200: Company + Contract - CORRECT
+            -- 9010300: Company + Contract - CORRECT
+            -- 9010400: Employee - CORRECT
+            -- 9010500: Employee - CORRECT
+            -- 9020000: NO DIMENSIONS (parent group) - FIXED ABOVE
+            -- 9020100: Company + Contract - CORRECT
+            -- 9020200: Company + Contract - CORRECT
+            -- 9020300: Employee - CORRECT
+            -- 9020400: Employee - CORRECT
+            -- 9030000: Expense Item + Business Activity - CORRECT
+            -- 9040000: Income Item + Business Activity - CORRECT
+            
+        </sql>
+        
+    </changeSet>
+
+</databaseChangeLog>

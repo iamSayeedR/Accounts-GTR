@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="043-update-group-sections" author="system">
+        <comment>Update section to 'Accounts Group' for all grouping nodes</comment>
+        <sql>
+            UPDATE chart_of_accounts 
+            SET section = 'Accounts Group' 
+            WHERE description IN (
+                'Non-Current Assets', 
+                'Current Assets', 
+                'Equity', 
+                'Non-Current Liabilities', 
+                'Current Liabilities', 
+                'Income', 
+                'Expenses', 
+                'Profit or Loss', 
+                'Off-Balance Sheet Accounts', 
+                'Property, Plant and Equipment', 
+                'Investment Property', 
+                'Intangible Assets', 
+                'Non-Current Financial Assets', 
+                'Other Non-Current Assets', 
+                'Inventories', 
+                'Trade and Other Current Receivables', 
+                'Prepayments to Suppliers', 
+                'Cash and Cash Equivalents', 
+                'Staff Settlements', 
+                'Assets Classified as Held for Sale', 
+                'PDCs Received', 
+                'Issued Share Capital', 
+                'Non-Current Loans Received', 
+                'Non-Current Bank Loans Received', 
+                'Current Financial Liabilities', 
+                'Current Loans', 
+                'Current Bank Loans', 
+                'Current Finance Lease Liabilities', 
+                'Trade and Other Current Payables', 
+                'Revenue', 
+                'Trade Discounts and Rebates', 
+                'Output VAT', 
+                'Cost of Sales', 
+                'COS: Employee Benefits Expenses', 
+                'Administrative Expenses', 
+                'Finance and Other Expenses'
+            );
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>

@@ -112,6 +112,56 @@
         },
         {
             "include": {
+                "file": "db/changelog/changes/031-fix-account-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/032-fix-non-current-assets-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/033-fix-current-assets-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/034-fix-equity-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/035-fix-non-current-liabilities-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/036-fix-current-liabilities-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/037-fix-income-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/038-fix-expenses-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/039-fix-profit-loss-dimensions.xml"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/040-fix-off-balance-sheet-dimensions.xml"
+            }
+        },
+        {
+            "include": {
                 "file": "db/changelog/changes/042-add-gl-accounts-to-invoices.json"
             }
         },
@@ -133,6 +183,11 @@
         {
             "include": {
                 "file": "db/changelog/changes/061-create-equity-transactions-table.json"
+            }
+        },
+        {
+            "include": {
+                "file": "db/changelog/changes/043-update-group-sections.xml"
             }
         }
     ]
